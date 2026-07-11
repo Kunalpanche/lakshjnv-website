@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="section-shell grid gap-10 py-12 lg:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <a href="#home" className="inline-flex items-center gap-3 font-display text-xl font-extrabold">
-            <img src="/laksh_jnvs_logo.png" alt="Laksh JNV logo" className="h-16 w-16 shrink-0 object-contain" width="64" height="64" />
-            Laksh JNV
+            <img src="/laksh_jnvs_logo.png" alt="Laksh JNV Academy logo" className="h-16 w-16 shrink-0 object-contain" width="64" height="64" />
+            Laksh JNV Academy
           </a>
           <p className="mt-4 max-w-md leading-7 text-blue-100">
             A premium coming-soon learning platform for JNV entrance exam aspirants, parents, and educators.
@@ -48,7 +48,7 @@ export default function Footer() {
 
       <div className="border-t border-white/15">
         <div className="section-shell flex flex-col gap-4 py-6 text-sm text-blue-100 md:flex-row md:items-center md:justify-between">
-          <p>Copyright 2026 Laksh JNV. All rights reserved.</p>
+          <p>Copyright 2026 Laksh JNV Academy. All rights reserved.</p>
           <div className="flex flex-wrap gap-4">
             {policyLinks.map((label) => (
               <a key={label} href={label === "Contact" ? "#contact" : "#"} className="hover:text-brand-yellow">

@@ -8,9 +8,9 @@ export default function About() {
     <section id="about" className="py-20">
       <div className="section-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <SectionHeading
-          eyebrow="About Laksh JNV"
+          eyebrow="About Laksh JNV Academy"
           title="Built for students, trusted by parents, focused on one goal."
-          copy="Laksh JNV is designed as a focused preparation platform for students aiming at Jawahar Navodaya Vidyalaya entrance exams."
+          copy="Laksh JNV Academy is designed as a focused preparation platform for students aiming at Jawahar Navodaya Vidyalaya entrance exams."
         />
 
         <div className="grid gap-4">

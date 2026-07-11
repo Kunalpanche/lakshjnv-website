@@ -8,7 +8,7 @@ export default function WhyChoose() {
       <div className="section-shell">
         <SectionHeading
           align="center"
-          eyebrow="Why Choose Laksh JNV"
+          eyebrow="Why Choose Laksh JNV Academy"
           title="Everything an aspirant needs before exam day."
           copy="A complete learning system combining expert teaching, consistent practice, and insights that help students improve steadily."
         />

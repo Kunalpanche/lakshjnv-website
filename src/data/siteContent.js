@@ -2,12 +2,9 @@ import {
   FaBookOpen,
   FaBrain,
   FaCalendarCheck,
-  FaCertificate,
-  FaChartLine,
   FaChalkboardTeacher,
   FaClipboardCheck,
   FaCrown,
-  FaDownload,
   FaEnvelope,
   FaFacebookF,
   FaHeadset,
@@ -18,18 +15,15 @@ import {
   FaMobileAlt,
   FaPhoneAlt,
   FaPlayCircle,
-  FaQuestionCircle,
-  FaRegLightbulb,
   FaRocket,
   FaStar,
   FaTelegramPlane,
-  FaTrophy,
   FaUsers,
   FaWhatsapp,
   FaYoutube,
 } from "react-icons/fa";
 
-export const launchDate = "2026-10-15T09:00:00+05:30";
+export const launchDate = "2026-07-15T09:00:00+05:30";
 
 export const navigation = [
   { label: "About", href: "#about" },
@@ -55,7 +49,7 @@ export const aboutPillars = [
     copy: "Build a trusted online learning community where every aspirant can practice, improve, and prepare with confidence.",
   },
   {
-    title: "Why Laksh JNV",
+    title: "Why Laksh JNV Academy",
     copy: "A focused platform for JNV aspirants with classes, tests, notes, analytics, and parent-friendly progress visibility.",
   },
 ];
@@ -110,19 +104,6 @@ export const previewSlides = [
   },
 ];
 
-export const upcomingFeatures = [
-  { icon: FaChalkboardTeacher, title: "Live Classes" },
-  { icon: FaQuestionCircle, title: "Daily Quiz" },
-  { icon: FaClipboardCheck, title: "Mock Tests" },
-  { icon: FaTrophy, title: "Leaderboard" },
-  { icon: FaHeadset, title: "Doubt Solving" },
-  { icon: FaCertificate, title: "Certificates" },
-  { icon: FaUsers, title: "Parent Dashboard" },
-  { icon: FaChartLine, title: "Smart Analytics" },
-  { icon: FaRegLightbulb, title: "AI Recommendations" },
-  { icon: FaDownload, title: "Offline Learning" },
-];
-
 export const benefits = [
   { icon: FaStar, title: "Free Mock Test", description: "Be first to access a launch-week practice test." },
   { icon: FaRocket, title: "Early Access", description: "Explore the platform before the public launch." },
@@ -134,8 +115,8 @@ export const benefits = [
 
 export const faqs = [
   {
-    question: "When will Laksh JNV launch?",
-    answer: "The launch is currently planned for October 15, 2026. Join the waitlist to receive confirmed launch updates first.",
+    question: "When will Laksh JNV Academy launch?",
+    answer: "The launch is currently planned for July 15, 2026. Join the waitlist to receive confirmed launch updates first.",
   },
   {
     question: "Is registration free?",

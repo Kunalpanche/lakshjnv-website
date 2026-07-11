@@ -28,9 +28,9 @@ export default function CountdownSection() {
                 Launch Countdown
               </span>
               <h2 id="countdown-title" className="mt-3 font-display text-2xl font-extrabold sm:text-3xl">
-                {total > 0 ? "Preparing the classroom for launch" : "Laksh JNV launch window is here"}
+                {total > 0 ? "Preparing the classroom for launch" : "Laksh JNV Academy launch window is here"}
               </h2>
-              <p className="mt-2 max-w-2xl text-blue-100">Target launch date: October 15, 2026 at 9:00 AM IST.</p>
+              <p className="mt-2 max-w-2xl text-blue-100">Target launch date: July 15, 2026 at 9:00 AM IST.</p>
             </div>
 
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">

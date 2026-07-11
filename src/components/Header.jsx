@@ -10,8 +10,8 @@ export default function Header() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/85 backdrop-blur-xl">
       <nav className="section-shell flex h-20 items-center justify-between" aria-label="Primary navigation">
         <a href="#home" className="flex items-center gap-3 font-display text-xl font-extrabold text-brand-blue">
-          <img src="/laksh_jnvs_logo.png" alt="Laksh JNV logo" className="h-16 w-16 shrink-0 object-contain sm:h-[72px] sm:w-[72px]" width="72" height="72" />
-          <span>Laksh JNV</span>
+          <img src="/laksh_jnvs_logo.png" alt="Laksh JNV Academy logo" className="h-16 w-16 shrink-0 object-contain sm:h-[72px] sm:w-[72px]" width="72" height="72" />
+          <span>Laksh JNV Academy</span>
         </a>
 
         <div className="hidden items-center gap-8 lg:flex">

@@ -10,7 +10,7 @@ export default function Contact() {
           <SectionHeading
             eyebrow="Contact"
             title="Questions from parents, schools, or teachers?"
-            copy="Reach the Laksh JNV team for launch information, support, school partnerships, and educator collaboration."
+            copy="Reach the Laksh JNV Academy team for launch information, support, school partnerships, and educator collaboration."
           />
 
           <div className="mt-8 flex flex-wrap gap-3">

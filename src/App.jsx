@@ -6,11 +6,9 @@ import CountdownSection from "./components/sections/CountdownSection.jsx";
 import About from "./components/sections/About.jsx";
 import WhyChoose from "./components/sections/WhyChoose.jsx";
 import PlatformPreview from "./components/sections/PlatformPreview.jsx";
-import UpcomingFeatures from "./components/sections/UpcomingFeatures.jsx";
 import Benefits from "./components/sections/Benefits.jsx";
 import Waitlist from "./components/sections/Waitlist.jsx";
 import FAQ from "./components/sections/FAQ.jsx";
-import Newsletter from "./components/sections/Newsletter.jsx";
 import Contact from "./components/sections/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -27,11 +25,9 @@ export default function App() {
             <About />
             <WhyChoose />
             <PlatformPreview />
-            <UpcomingFeatures />
             <Benefits />
             <Waitlist />
             <FAQ />
-            <Newsletter />
             <Contact />
           </motion.div>
         </main>

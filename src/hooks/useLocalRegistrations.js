@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 
 const WAITLIST_KEY = "laksh-jnv-waitlist";
-const NEWSLETTER_KEY = "laksh-jnv-newsletter";
 
 const getStored = (key) => {
   try {
@@ -22,7 +21,6 @@ const createId = () => {
 
 export function useLocalRegistrations() {
   const [waitlist, setWaitlist] = useState(() => getStored(WAITLIST_KEY));
-  const [newsletter, setNewsletter] = useState(() => getStored(NEWSLETTER_KEY));
 
   const addWaitlist = useCallback(
     (entry) =>
@@ -45,24 +43,5 @@ export function useLocalRegistrations() {
     [waitlist],
   );
 
-  const addNewsletter = useCallback(
-    (email) =>
-      new Promise((resolve, reject) => {
-        setTimeout(() => {
-          const normalizedEmail = email.trim().toLowerCase();
-          if (newsletter.some((row) => row.email.toLowerCase() === normalizedEmail)) {
-            reject(new Error("This email is already subscribed for launch updates."));
-            return;
-          }
-
-          const next = [{ id: createId(), email: normalizedEmail, createdAt: new Date().toISOString() }, ...newsletter];
-          saveStored(NEWSLETTER_KEY, next);
-          setNewsletter(next);
-          resolve(next[0]);
-        }, 450);
-      }),
-    [newsletter],
-  );
-
-  return { waitlistCount: waitlist.length, newsletterCount: newsletter.length, addWaitlist, addNewsletter };
+  return { waitlistCount: waitlist.length, addWaitlist };
 }

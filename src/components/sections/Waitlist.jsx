@@ -44,7 +44,7 @@ export default function Waitlist() {
       setValues(initialValues);
       setStatus({
         type: "success",
-        message: "You are on the Laksh JNV waitlist. A welcome email will be sent when backend email automation is connected.",
+        message: "You are on the Laksh JNV Academy waitlist. A welcome email will be sent when backend email automation is connected.",
       });
     } catch (error) {
       setStatus({ type: "error", message: error.message });
@@ -59,7 +59,7 @@ export default function Waitlist() {
         <div>
           <SectionHeading
             eyebrow="Waitlist Registration"
-            title="Be first in line when Laksh JNV opens."
+            title="Be first in line when Laksh JNV Academy opens."
             copy="Share your details to receive launch updates, early access information, and selected waitlist benefits."
             tone="dark"
           />
