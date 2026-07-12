@@ -1,24 +1,10 @@
 import {
-  FaBookOpen,
-  FaBrain,
-  FaCalendarCheck,
-  FaChalkboardTeacher,
-  FaClipboardCheck,
-  FaCrown,
   FaEnvelope,
   FaFacebookF,
-  FaHeadset,
   FaInstagram,
   FaLanguage,
-  FaLaptopCode,
-  FaMedal,
-  FaMobileAlt,
   FaPhoneAlt,
-  FaPlayCircle,
-  FaRocket,
-  FaStar,
   FaTelegramPlane,
-  FaUsers,
   FaWhatsapp,
   FaYoutube,
   FaDownload,
@@ -109,44 +95,7 @@ export const chooseFeatures = [
   },
 ];
 
-export const previewSlides = [
-  {
-    title: "Student Dashboard",
-    subtitle: "Daily plan, test score, progress streak",
-    metric: "82%",
-    bars: ["w-11/12", "w-8/12", "w-10/12"],
-  },
-  {
-    title: "Course Screen",
-    subtitle: "Chapter-wise learning path",
-    metric: "24",
-    bars: ["w-9/12", "w-7/12", "w-11/12"],
-  },
-  {
-    title: "Video Player",
-    subtitle: "Live and recorded classes",
-    metric: "HD",
-    bars: ["w-10/12", "w-8/12", "w-6/12"],
-  },
-  {
-    title: "Test Interface",
-    subtitle: "Timed practice with instant review",
-    metric: "60m",
-    bars: ["w-8/12", "w-11/12", "w-9/12"],
-  },
-  {
-    title: "Analytics",
-    subtitle: "AI-backed performance summary",
-    metric: "+18%",
-    bars: ["w-7/12", "w-10/12", "w-8/12"],
-  },
-  {
-    title: "Mobile App",
-    subtitle: "Learning on every device",
-    metric: "App",
-    bars: ["w-10/12", "w-6/12", "w-9/12"],
-  },
-];
+
 
 export const benefits = [
   {

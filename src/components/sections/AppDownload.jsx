@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import { FaGooglePlay } from "react-icons/fa";
-import SectionHeading from "../SectionHeading.jsx";
 import { appDownloadContent } from "../../data/siteContent.js";
 
 export default function AppDownload() {

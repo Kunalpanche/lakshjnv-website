@@ -1,37 +1,83 @@
-import { motion } from "framer-motion";
-import SectionHeading from "../SectionHeading.jsx";
-import Button from "../Button.jsx";
+import { useRef, useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { benefits } from "../../data/siteContent.js";
 
 export default function Benefits() {
+  const scrollRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", checkScroll, { passive: true });
+    checkScroll();
+    return () => el.removeEventListener("scroll", checkScroll);
+  }, []);
+
+  const scroll = (direction) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const amount = 320;
+    el.scrollBy({ left: direction === "left" ? -amount : amount, behavior: "smooth" });
+  };
+
   return (
     <section className="py-20 relative overflow-hidden bg-[#082a68]">
       <div className="absolute inset-0 z-0 bg-[linear-gradient(126deg,#092b66_0%,#123a78_36%,#8a5144_64%,#ff6b00_100%)]" />
       <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_16%_18%,rgba(255,255,255,0.14),transparent_28%),radial-gradient(circle_at_80%_24%,rgba(255,216,180,0.28),transparent_34%),radial-gradient(circle_at_92%_72%,rgba(255,107,0,0.36),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0))]" />
       <div className="section-shell relative z-10">
-        <div className="relative z-10 mb-16 max-w-2xl">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
-            JNV Course Modules
-          </h2>
-          <p className="mt-4 text-blue-100 text-lg">
-            Comprehensive learning tracks designed specifically to help your child master every section of the Navodaya entrance exam.
-          </p>
+        <div className="relative z-10 mb-16 max-w-2xl flex items-end justify-between w-full">
+          <div>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
+              JNV Course Modules
+            </h2>
+            <p className="mt-4 text-blue-100 text-lg">
+              Comprehensive learning tracks designed specifically to help your child master every section of the Navodaya entrance exam.
+            </p>
+          </div>
+        </div>
+
+        {/* Arrow Buttons */}
+        <div className="relative z-10 flex gap-3 mb-6">
+          <button
+            onClick={() => scroll("left")}
+            disabled={!canScrollLeft}
+            className={`flex items-center justify-center w-11 h-11 rounded-full border-2 border-white/30 text-white transition-all ${canScrollLeft ? "hover:bg-white hover:text-brand-blue cursor-pointer" : "opacity-30 cursor-not-allowed"}`}
+            aria-label="Scroll left"
+          >
+            <FaChevronLeft className="text-sm" />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            disabled={!canScrollRight}
+            className={`flex items-center justify-center w-11 h-11 rounded-full border-2 border-white/30 text-white transition-all ${canScrollRight ? "hover:bg-white hover:text-brand-blue cursor-pointer" : "opacity-30 cursor-not-allowed"}`}
+            aria-label="Scroll right"
+          >
+            <FaChevronRight className="text-sm" />
+          </button>
         </div>
 
         {/* Cards Container */}
-        <div className="relative z-10 flex flex-nowrap overflow-x-auto gap-8 pb-12 pt-8 -mx-4 px-4 sm:-mx-8 sm:px-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-x">
+        <div
+          ref={scrollRef}
+          className="relative z-10 flex flex-nowrap overflow-x-hidden gap-8 pb-12 pt-8 -mx-4 px-4 sm:-mx-8 sm:px-8 snap-x hide-scrollbar"
+        >
           {benefits.map(({ icon: Icon, title, description, badge }, index) => {
             // Create staggered effect (up, down, up, down)
             const staggerClass = index % 2 === 0 ? "mt-0" : "mt-12 md:mt-24";
             
             return (
-              <motion.article
+              <article
                 key={title}
                 className={`relative flex-shrink-0 w-72 h-[320px] rounded-[2rem] bg-slate-50 p-6 shadow-lg snap-center ${staggerClass}`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: index * 0.1 }}
               >
                 {/* Paperclip SVG */}
                 <div className="absolute -top-7 right-4 z-20 text-slate-300 drop-shadow-md rotate-12">
@@ -70,7 +116,7 @@ export default function Benefits() {
                     )}
                   </div>
                 </div>
-              </motion.article>
+              </article>
             );
           })}
         </div>

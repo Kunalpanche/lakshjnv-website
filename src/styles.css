@@ -13,12 +13,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-body {
+body, #root {
   margin: 0;
   min-width: 320px;
   font-family: Inter, sans-serif;
+  overflow-x: hidden;
 }
 
 button,
@@ -54,6 +56,14 @@ select:focus-visible {
 
   .glass-panel {
     @apply border border-white/70 bg-white/85 shadow-premium backdrop-blur;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 
