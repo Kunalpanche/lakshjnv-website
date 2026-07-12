@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laksh JNV Academy — Design System & Theme Reference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* =========================================================
+       CSS VARIABLES — THE SINGLE SOURCE OF TRUTH
+       ========================================================= */
+    :root {
+      /* —— Brand Colors —— */
+      --brand-orange: #FF6B00;
+      --brand-blue: #1E3A8A;
+      --brand-yellow: #FACC15;
+      --brand-bg: #F8FAFC;
+      --brand-ink: #0F172A;
+
+      /* —— Semantic / Status Colors —— */
+      --color-success: #16A34A;
+      --color-success-light: #F0FDF4;
+      --color-warning: #EAB308;
+      --color-warning-light: #FEFCE8;
+      --color-error: #DC2626;
+      --color-error-light: #FEF2F2;
+      --color-info: #1F8FFF;
+      --color-info-light: #EFF6FF;
+
+      /* —— Surface / Card —— */
+      --surface-white: #FFFFFF;
+      --surface-card: #F1F5F9;
+      --surface-glass-bg: rgba(255,255,255,0.85);
+      --surface-glass-border: rgba(255,255,255,0.70);
+
+      /* —— Borders —— */
+      --border-default: #E2E8F0;
+      --border-light: #F1F5F9;
+      --border-orange: #FED7AA;
+
+      /* —— Text —— */
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --text-white: #FFFFFF;
+      --text-blue-light: #DBEAFE;
+
+      /* —— Gradients —— */
+      --gradient-hero: linear-gradient(126deg, #092b66 0%, #123a78 36%, #8a5144 64%, #ff6b00 100%);
+      --gradient-hero-overlay: radial-gradient(circle at 16% 18%, rgba(255,255,255,0.14), transparent 28%), radial-gradient(circle at 80% 24%, rgba(255,216,180,0.28), transparent 34%), radial-gradient(circle at 92% 72%, rgba(255,107,0,0.36), transparent 36%), linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0));
+      --gradient-button-primary: linear-gradient(to right, #ff6b00, #ff9900);
+      --gradient-button-hover: linear-gradient(to right, #e65c00, #ff8800);
+      --gradient-text-accent: linear-gradient(to right, #ff6b00, #ffb152);
+
+      /* —— Typography —— */
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --fw-regular: 400;
+      --fw-medium: 500;
+      --fw-semibold: 600;
+      --fw-bold: 700;
+      --fw-extrabold: 800;
+
+      /* —— Font Sizes —— */
+      --fs-xs: 0.75rem;    /* 12px */
+      --fs-sm: 0.875rem;   /* 14px */
+      --fs-base: 1rem;     /* 16px */
+      --fs-lg: 1.125rem;   /* 18px */
+      --fs-xl: 1.25rem;    /* 20px */
+      --fs-2xl: 1.5rem;    /* 24px */
+      --fs-3xl: 1.875rem;  /* 30px */
+      --fs-4xl: 2.25rem;   /* 36px */
+      --fs-5xl: 3rem;      /* 48px */
+      --fs-6xl: 3.75rem;   /* 60px */
+      --fs-7xl: 4.5rem;    /* 72px */
+
+      /* —— Line Heights —— */
+      --lh-tight: 1.08;
+      --lh-snug: 1.25;
+      --lh-normal: 1.5;
+      --lh-relaxed: 1.75;
+
+      /* —— Letter Spacing —— */
+      --ls-normal: 0em;
+      --ls-wide: 0.025em;
+      --ls-wider: 0.05em;
+
+      /* —— Spacing Scale (rem) —— */
+      --space-0: 0;
+      --space-1: 0.25rem;   /* 4px */
+      --space-2: 0.5rem;    /* 8px */
+      --space-3: 0.75rem;   /* 12px */
+      --space-4: 1rem;      /* 16px */
+      --space-5: 1.25rem;   /* 20px */
+      --space-6: 1.5rem;    /* 24px */
+      --space-8: 2rem;      /* 32px */
+      --space-10: 2.5rem;   /* 40px */
+      --space-12: 3rem;     /* 48px */
+      --space-16: 4rem;     /* 64px */
+      --space-20: 5rem;     /* 80px */
+      --space-24: 6rem;     /* 96px */
+
+      /* —— Border Radius —— */
+      --radius-sm: 0.375rem;   /* 6px */
+      --radius-md: 0.5rem;     /* 8px */
+      --radius-lg: 0.75rem;    /* 12px */
+      --radius-xl: 1rem;       /* 16px */
+      --radius-2xl: 1.5rem;    /* 24px */
+      --radius-3xl: 2rem;      /* 32px */
+      --radius-full: 9999px;
+
+      /* —— Shadows —— */
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+      --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+      --shadow-premium: 0 24px 70px -30px rgba(15,23,42,0.35);
+      --shadow-button: 0 20px 25px -5px rgba(255,107,0,0.40);
+      --shadow-button-hover: 0 20px 25px -5px rgba(255,107,0,0.60);
+
+      /* —— Z-Index —— */
+      --z-base: 0;
+      --z-content: 10;
+      --z-overlay: 20;
+      --z-sticky: 40;
+      --z-header: 50;
+
+      /* —— Transitions —— */
+      --transition-fast: 150ms ease;
+      --transition-base: 200ms ease;
+      --transition-slow: 300ms ease;
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      /* —— Breakpoints (for reference) —— */
+      --bp-sm: 640px;
+      --bp-md: 768px;
+      --bp-lg: 1024px;
+      --bp-xl: 1280px;
+      --bp-2xl: 1536px;
+
+      /* —— Container —— */
+      --container-max: 80rem; /* 1280px = max-w-7xl */
+      --container-px-sm: 1rem;
+      --container-px-md: 1.5rem;
+      --container-px-lg: 2rem;
+    }
+
+    /* =========================================================
+       BASE STYLES
+       ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--brand-bg);
+      line-height: var(--lh-normal);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { display: block; max-width: 100%; }
+
+    /* =========================================================
+       LAYOUT
+       ========================================================= */
+    .theme-shell {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--container-px-sm);
+    }
+    @media (min-width: 640px) { .theme-shell { padding: 0 var(--container-px-md); } }
+    @media (min-width: 1024px) { .theme-shell { padding: 0 var(--container-px-lg); } }
+
+    .theme-section {
+      padding: var(--space-20) 0;
+      border-bottom: 1px solid var(--border-default);
+    }
+    .theme-section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-family: var(--font-display);
+      font-size: var(--fs-3xl);
+      font-weight: var(--fw-extrabold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: var(--fs-base);
+      margin-bottom: var(--space-10);
+      max-width: 640px;
+    }
+    .subsection-label {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-bold);
+      color: var(--text-primary);
+      margin-top: var(--space-10);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-2);
+      border-bottom: 2px solid var(--brand-orange);
+      display: inline-block;
+    }
+
+    /* =========================================================
+       COLOR SWATCHES
+       ========================================================= */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-4);
+    }
+    .swatch {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--border-default);
+      background: var(--surface-white);
+      box-shadow: var(--shadow-sm);
+    }
+    .swatch-color {
+      height: 100px;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-3);
+    }
+    .swatch-info {
+      padding: var(--space-3) var(--space-4);
+    }
+    .swatch-name {
+      font-weight: var(--fw-bold);
+      font-size: var(--fs-sm);
+      color: var(--text-primary);
+    }
+    .swatch-values {
+      margin-top: var(--space-1);
+      font-size: 11px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .swatch-values span { display: block; }
+
+    /* =========================================================
+       GRADIENT CARDS
+       ========================================================= */
+    .gradient-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--space-6);
+    }
+    .gradient-card {
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      border: 1px solid var(--border-default);
+      background: var(--surface-white);
+    }
+    .gradient-preview {
+      height: 120px;
+    }
+    .gradient-info {
+      padding: var(--space-4);
+    }
+    .gradient-info h4 {
+      font-weight: var(--fw-bold);
+      font-size: var(--fs-sm);
+      margin-bottom: var(--space-2);
+    }
+    .gradient-code {
+      font-size: 11px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: var(--text-muted);
+      word-break: break-all;
+      background: var(--surface-card);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      line-height: 1.5;
+    }
+
+    /* =========================================================
+       TYPOGRAPHY SHOWCASE
+       ========================================================= */
+    .type-row {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-6);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .type-row:last-child { border-bottom: none; }
+    .type-label {
+      flex-shrink: 0;
+      width: 140px;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .type-sample { flex: 1; }
+    .type-meta {
+      flex-shrink: 0;
+      text-align: right;
+      font-size: 11px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: var(--text-muted);
+      min-width: 160px;
+    }
+
+    /* =========================================================
+       SPACING DISPLAY
+       ========================================================= */
+    .spacing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: var(--space-3);
+    }
+    .spacing-item {
+      background: var(--surface-white);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: var(--space-3);
+      text-align: center;
+    }
+    .spacing-bar {
+      height: 12px;
+      background: var(--brand-orange);
+      border-radius: var(--radius-full);
+      margin: var(--space-2) auto;
+    }
+    .spacing-val {
+      font-size: 11px;
+      font-family: 'SF Mono', monospace;
+      color: var(--text-muted);
+    }
+    .spacing-name {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      color: var(--text-primary);
+    }
+
+    /* =========================================================
+       RADIUS DISPLAY
+       ========================================================= */
+    .radius-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+    .radius-item {
+      width: 100px;
+      height: 100px;
+      background: var(--brand-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 11px;
+      font-family: 'SF Mono', monospace;
+      font-weight: var(--fw-bold);
+    }
+
+    /* =========================================================
+       SHADOW DISPLAY
+       ========================================================= */
+    .shadow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-6);
+    }
+    .shadow-item {
+      height: 120px;
+      background: var(--surface-white);
+      border-radius: var(--radius-2xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      color: var(--text-secondary);
+    }
+
+    /* =========================================================
+       COMPONENT EXAMPLES
+       ========================================================= */
+    .component-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: center;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: var(--radius-full);
+      padding: 12px 24px;
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-bold);
+      transition: all var(--transition-base);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+    }
+    .btn-primary {
+      background: var(--gradient-button-primary);
+      color: white;
+      box-shadow: var(--shadow-button);
+    }
+    .btn-primary:hover {
+      background: var(--gradient-button-hover);
+      box-shadow: var(--shadow-button-hover);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: white;
+      color: var(--brand-blue);
+      border: 1px solid #CBD5E1;
+    }
+    .btn-secondary:hover {
+      border-color: var(--brand-blue);
+      background: #EFF6FF;
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--brand-blue);
+    }
+    .btn-ghost:hover {
+      background: #EFF6FF;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--brand-orange);
+      border: 2px solid var(--brand-orange);
+    }
+    .btn-outline:hover {
+      background: var(--brand-orange);
+      color: white;
+    }
+
+    /* Inputs */
+    .input {
+      min-height: 48px;
+      width: 100%;
+      max-width: 400px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-light);
+      background: var(--surface-card);
+      padding: 12px 16px 12px 44px;
+      font-size: var(--fs-sm);
+      color: var(--text-primary);
+      outline: none;
+      transition: all var(--transition-base);
+      font-family: var(--font-body);
+    }
+    .input::placeholder { color: var(--text-muted); }
+    .input:focus {
+      border-color: var(--brand-orange);
+      background: white;
+      box-shadow: 0 0 0 4px rgba(255,107,0,0.1);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface-white);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-6);
+      border: 1px solid var(--border-default);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-orange);
+      box-shadow: var(--shadow-xl);
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-weight: var(--fw-bold);
+      font-size: var(--fs-lg);
+      color: var(--text-primary);
+    }
+    .card-text {
+      margin-top: var(--space-2);
+      font-size: var(--fs-sm);
+      color: var(--text-secondary);
+      line-height: var(--lh-relaxed);
+    }
+
+    /* Badges / Chips / Tags */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .badge-orange {
+      background: #FFF7ED;
+      color: var(--brand-orange);
+      border: 1px solid var(--border-orange);
+    }
+    .badge-blue {
+      background: #EFF6FF;
+      color: var(--brand-blue);
+      border: 1px solid #BFDBFE;
+    }
+    .badge-dark {
+      background: var(--text-primary);
+      color: white;
+    }
+    .badge-success {
+      background: var(--color-success-light);
+      color: var(--color-success);
+    }
+
+    /* Eyebrow (from website) */
+    .eyebrow-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-orange);
+      background: #FFF7ED;
+      padding: 4px 12px;
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      color: var(--brand-orange);
+    }
+
+    /* Glassmorphism */
+    .glass-panel-example {
+      background: var(--surface-glass-bg);
+      border: 1px solid var(--surface-glass-border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-premium);
+    }
+
+    /* Alert */
+    .alert {
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-lg);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+    }
+    .alert-success { background: var(--color-success-light); color: var(--color-success); }
+    .alert-error { background: var(--color-error-light); color: var(--color-error); }
+    .alert-warning { background: var(--color-warning-light); color: var(--color-warning); }
+    .alert-info { background: var(--color-info-light); color: var(--color-info); }
+
+    /* Progress Bar */
+    .progress-track {
+      width: 100%;
+      max-width: 300px;
+      height: 10px;
+      background: var(--surface-card);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      background: var(--gradient-button-primary);
+      transition: width 0.5s ease;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: var(--space-1);
+      background: var(--surface-card);
+      padding: 4px;
+      border-radius: var(--radius-xl);
+      width: fit-content;
+    }
+    .tab {
+      padding: 8px 20px;
+      border-radius: var(--radius-lg);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-secondary);
+      transition: all var(--transition-fast);
+      font-family: var(--font-body);
+    }
+    .tab.active {
+      background: white;
+      color: var(--brand-blue);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* FAB */
+    .fab {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--gradient-button-primary);
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--fs-xl);
+      box-shadow: var(--shadow-button);
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+    .fab:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: var(--shadow-button-hover);
+    }
+
+    /* Code Block */
+    .code-block {
+      background: #1E293B;
+      color: #E2E8F0;
+      border-radius: var(--radius-lg);
+      padding: var(--space-4) var(--space-5);
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 12px;
+      line-height: 1.7;
+      overflow-x: auto;
+      white-space: pre;
+      margin-top: var(--space-3);
+    }
+    .code-block .k { color: #C084FC; }
+    .code-block .v { color: #34D399; }
+    .code-block .c { color: #64748B; }
+    .code-block .p { color: #94A3B8; }
+
+    /* Page Header */
+    .page-hero {
+      background: var(--gradient-hero);
+      padding: var(--space-24) 0 var(--space-20);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-hero-overlay);
+      pointer-events: none;
+    }
+    .page-hero .theme-shell { position: relative; z-index: 2; }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.75rem);
+      font-weight: var(--fw-extrabold);
+      color: white;
+      line-height: var(--lh-tight);
+    }
+    .page-hero p {
+      margin-top: var(--space-4);
+      color: var(--text-blue-light);
+      font-size: var(--fs-lg);
+      max-width: 560px;
+    }
+    .page-hero .badge-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1);
+      padding: 6px 12px;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      color: white;
+      backdrop-filter: blur(8px);
+      margin-bottom: var(--space-4);
+    }
+
+    /* Nav for theme page */
+    .theme-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface-glass-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-default);
+      padding: var(--space-3) 0;
+    }
+    .theme-nav-inner {
+      display: flex;
+      gap: var(--space-4);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .theme-nav-inner::-webkit-scrollbar { display: none; }
+    .theme-nav a {
+      white-space: nowrap;
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-md);
+      transition: all var(--transition-fast);
+    }
+    .theme-nav a:hover {
+      color: var(--brand-orange);
+      background: #FFF7ED;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================
+       HERO HEADER
+       ============================ -->
+  <div class="page-hero">
+    <div class="theme-shell">
+      <div class="badge-hero">🎨 Design System v1.0</div>
+      <h1>Laksh JNV Academy<br>Design System</h1>
+      <p>Complete visual reference for replicating the website's UI in the mobile app — every color, font, gradient, shadow, and component documented.</p>
+    </div>
+  </div>
+
+  <!-- ============================
+       STICKY NAV
+       ============================ -->
+  <nav class="theme-nav">
+    <div class="theme-shell theme-nav-inner">
+      <a href="#brand">Brand</a>
+      <a href="#colors">Colors</a>
+      <a href="#gradients">Gradients</a>
+      <a href="#typography">Typography</a>
+      <a href="#spacing">Spacing</a>
+      <a href="#radius">Radius</a>
+      <a href="#shadows">Shadows</a>
+      <a href="#components">Components</a>
+      <a href="#icons">Icons</a>
+      <a href="#layout">Layout</a>
+      <a href="#css-vars">CSS Variables</a>
+      <a href="#tailwind">Tailwind Config</a>
+      <a href="#export">Export</a>
+    </div>
+  </nav>
+
+  <div class="theme-shell">
+
+    <!-- ===================================================
+         1. BRAND IDENTITY
+         =================================================== -->
+    <section id="brand" class="theme-section">
+      <h2 class="section-label">Brand Identity</h2>
+      <p class="section-desc">Core brand assets and guidelines for Laksh JNV Academy.</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;">
+        <div>
+          <h4 class="subsection-label">Logo (Light Background)</h4>
+          <div style="background:white;padding:24px 32px;border-radius:var(--radius-2xl);border:1px solid var(--border-default);display:flex;align-items:center;gap:16px;">
+            <img src="/laksh_jnvs_logo.png" alt="Logo" style="height:72px;width:72px;object-fit:contain;" />
+            <span style="font-family:var(--font-display);font-size:var(--fs-xl);font-weight:var(--fw-extrabold);color:var(--brand-blue);">Laksh JNV Academy</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="subsection-label">Logo (Dark Background)</h4>
+          <div style="background:var(--brand-blue);padding:24px 32px;border-radius:var(--radius-2xl);display:flex;align-items:center;gap:16px;">
+            <img src="/laksh_jnvs_logo.png" alt="Logo" style="height:72px;width:72px;object-fit:contain;" />
+            <span style="font-family:var(--font-display);font-size:var(--fs-xl);font-weight:var(--fw-extrabold);color:white;">Laksh JNV Academy</span>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="subsection-label">Brand Guidelines</h4>
+      <div class="card" style="max-width:600px;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:var(--fs-sm);color:var(--text-secondary);">
+          <li><strong>Brand Name:</strong> Laksh JNV Academy</li>
+          <li><strong>Tagline:</strong> We prepare your child for JNV success</li>
+          <li><strong>Logo File:</strong> /laksh_jnvs_logo.png</li>
+          <li><strong>Favicon:</strong> /favicon_io/ directory</li>
+          <li><strong>App Icon:</strong> /favicon_io/apple-touch-icon.png (180×180)</li>
+          <li><strong>Display Font:</strong> Poppins (600–800)</li>
+          <li><strong>Body Font:</strong> Inter (400–800)</li>
+          <li><strong>Minimum Logo Size:</strong> 40×40px</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         2. COLOR SYSTEM
+         =================================================== -->
+    <section id="colors" class="theme-section">
+      <h2 class="section-label">Color System</h2>
+      <p class="section-desc">Every color used across the website with HEX, RGB, and HSL values.</p>
+
+      <h4 class="subsection-label">Brand Colors</h4>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FF6B00;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand Orange (Primary)</div>
+            <div class="swatch-values">
+              <span>HEX: #FF6B00</span>
+              <span>RGB: 255, 107, 0</span>
+              <span>HSL: 25°, 100%, 50%</span>
+              <span>CSS: var(--brand-orange)</span>
+            </div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#1E3A8A;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand Blue (Secondary)</div>
+            <div class="swatch-values">
+              <span>HEX: #1E3A8A</span>
+              <span>RGB: 30, 58, 138</span>
+              <span>HSL: 224°, 64%, 33%</span>
+              <span>CSS: var(--brand-blue)</span>
+            </div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FACC15;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand Yellow (Accent)</div>
+            <div class="swatch-values">
+              <span>HEX: #FACC15</span>
+              <span>RGB: 250, 204, 21</span>
+              <span>HSL: 48°, 96%, 53%</span>
+              <span>CSS: var(--brand-yellow)</span>
+            </div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#0F172A;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand Ink (Text)</div>
+            <div class="swatch-values">
+              <span>HEX: #0F172A</span>
+              <span>RGB: 15, 23, 42</span>
+              <span>HSL: 222°, 47%, 11%</span>
+              <span>CSS: var(--brand-ink)</span>
+            </div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F8FAFC;border-bottom:1px solid #e2e8f0;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand Background</div>
+            <div class="swatch-values">
+              <span>HEX: #F8FAFC</span>
+              <span>RGB: 248, 250, 252</span>
+              <span>HSL: 210°, 40%, 98%</span>
+              <span>CSS: var(--brand-bg)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="subsection-label">Semantic / Status Colors</h4>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#16A34A;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Success</div>
+            <div class="swatch-values"><span>HEX: #16A34A</span><span>Light: #F0FDF4</span></div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#EAB308;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Warning</div>
+            <div class="swatch-values"><span>HEX: #EAB308</span><span>Light: #FEFCE8</span></div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#DC2626;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Error</div>
+            <div class="swatch-values"><span>HEX: #DC2626</span><span>Light: #FEF2F2</span></div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#1F8FFF;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Info</div>
+            <div class="swatch-values"><span>HEX: #1F8FFF</span><span>Light: #EFF6FF</span></div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="subsection-label">Text Colors</h4>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#0F172A;"></div>
+          <div class="swatch-info"><div class="swatch-name">Primary Text</div><div class="swatch-values"><span>#0F172A</span></div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#475569;"></div>
+          <div class="swatch-info"><div class="swatch-name">Secondary Text</div><div class="swatch-values"><span>#475569 (slate-600)</span></div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#94A3B8;"></div>
+          <div class="swatch-info"><div class="swatch-name">Muted Text</div><div class="swatch-values"><span>#94A3B8 (slate-400)</span></div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#DBEAFE;border:1px solid #93c5fd;"></div>
+          <div class="swatch-info"><div class="swatch-name">Light Text (on dark)</div><div class="swatch-values"><span>#DBEAFE (blue-100)</span></div></div>
+        </div>
+      </div>
+
+      <h4 class="subsection-label">Surface & Border Colors</h4>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #e2e8f0;"></div>
+          <div class="swatch-info"><div class="swatch-name">Surface White</div><div class="swatch-values"><span>#FFFFFF</span></div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F1F5F9;border-bottom:1px solid #e2e8f0;"></div>
+          <div class="swatch-info"><div class="swatch-name">Surface Card (slate-100)</div><div class="swatch-values"><span>#F1F5F9</span></div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#E2E8F0;"></div>
+          <div class="swatch-info"><div class="swatch-name">Border Default (slate-200)</div><div class="swatch-values"><span>#E2E8F0</span></div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FED7AA;"></div>
+          <div class="swatch-info"><div class="swatch-name">Border Orange (orange-200)</div><div class="swatch-values"><span>#FED7AA</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         3. GRADIENTS
+         =================================================== -->
+    <section id="gradients" class="theme-section">
+      <h2 class="section-label">Gradients</h2>
+      <p class="section-desc">Every gradient used across the website with CSS code and direction.</p>
+
+      <div class="gradient-grid">
+        <div class="gradient-card">
+          <div class="gradient-preview" style="background:linear-gradient(126deg,#092b66 0%,#123a78 36%,#8a5144 64%,#ff6b00 100%);"></div>
+          <div class="gradient-info">
+            <h4>Hero / Section Background</h4>
+            <div class="gradient-code">linear-gradient(126deg, #092b66 0%, #123a78 36%, #8a5144 64%, #ff6b00 100%)</div>
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview" style="background:linear-gradient(to right,#ff6b00,#ff9900);"></div>
+          <div class="gradient-info">
+            <h4>Primary Button</h4>
+            <div class="gradient-code">linear-gradient(to right, #ff6b00, #ff9900)</div>
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview" style="background:linear-gradient(to right,#e65c00,#ff8800);"></div>
+          <div class="gradient-info">
+            <h4>Primary Button Hover</h4>
+            <div class="gradient-code">linear-gradient(to right, #e65c00, #ff8800)</div>
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview" style="background:linear-gradient(to right,#ff6b00,#ffb152);"></div>
+          <div class="gradient-info">
+            <h4>Text Accent Gradient</h4>
+            <div class="gradient-code">linear-gradient(to right, #ff6b00, #ffb152)<br>Used with: background-clip: text; -webkit-text-fill-color: transparent;</div>
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview" style="background:linear-gradient(90deg,rgba(9,43,102,0) 0%,rgba(9,43,102,0.08) 50%,rgba(9,43,102,0.1) 100%);border:1px solid #e2e8f0;"></div>
+          <div class="gradient-info">
+            <h4>Hero Image Overlay</h4>
+            <div class="gradient-code">linear-gradient(90deg, rgba(9,43,102,0) 0%, rgba(9,43,102,0.08) 50%, rgba(9,43,102,0.1) 100%)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         4. TYPOGRAPHY
+         =================================================== -->
+    <section id="typography" class="theme-section">
+      <h2 class="section-label">Typography</h2>
+      <p class="section-desc">Font families, weights, sizes, and heading hierarchy.</p>
+
+      <h4 class="subsection-label">Font Families</h4>
+      <div style="display:flex;flex-wrap:wrap;gap:24px;">
+        <div class="card" style="flex:1;min-width:280px;">
+          <div class="badge badge-blue" style="margin-bottom:12px;">Display</div>
+          <p style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:var(--fw-extrabold);">Poppins</p>
+          <p style="font-size:var(--fs-sm);color:var(--text-muted);margin-top:4px;">Used for: Headings, brand name, section titles</p>
+          <p style="font-size:var(--fs-sm);color:var(--text-muted);">Weights: 600, 700, 800</p>
+        </div>
+        <div class="card" style="flex:1;min-width:280px;">
+          <div class="badge badge-blue" style="margin-bottom:12px;">Body</div>
+          <p style="font-family:var(--font-body);font-size:var(--fs-2xl);font-weight:var(--fw-bold);">Inter</p>
+          <p style="font-size:var(--fs-sm);color:var(--text-muted);margin-top:4px;">Used for: Body text, buttons, inputs, labels</p>
+          <p style="font-size:var(--fs-sm);color:var(--text-muted);">Weights: 400, 500, 600, 700, 800</p>
+        </div>
+      </div>
+
+      <h4 class="subsection-label">Heading Hierarchy</h4>
+      <div style="background:white;border-radius:var(--radius-2xl);padding:var(--space-6);border:1px solid var(--border-default);">
+        <div class="type-row">
+          <div class="type-label">H1</div>
+          <div class="type-sample" style="font-family:var(--font-display);font-size:var(--fs-6xl);font-weight:var(--fw-extrabold);line-height:var(--lh-tight);">JNV Success</div>
+          <div class="type-meta">60px / 800<br>Poppins</div>
+        </div>
+        <div class="type-row">
+          <div class="type-label">H2 (Section)</div>
+          <div class="type-sample" style="font-family:var(--font-display);font-size:var(--fs-5xl);font-weight:var(--fw-extrabold);">Section Title</div>
+          <div class="type-meta">48px / 800<br>Poppins</div>
+        </div>
+        <div class="type-row">
+          <div class="type-label">H3</div>
+          <div class="type-sample" style="font-family:var(--font-display);font-size:var(--fs-3xl);font-weight:var(--fw-extrabold);">Sub Heading</div>
+          <div class="type-meta">30px / 800<br>Poppins</div>
+        </div>
+        <div class="type-row">
+          <div class="type-label">H4</div>
+          <div class="type-sample" style="font-family:var(--font-display);font-size:var(--fs-xl);font-weight:var(--fw-bold);">Card Title</div>
+          <div class="type-meta">20px / 700<br>Poppins</div>
+        </div>
+        <div class="type-row">
+          <div class="type-label">Body Large</div>
+          <div class="type-sample" style="font-size:var(--fs-lg);color:var(--text-secondary);">Comprehensive learning tracks designed for Navodaya entrance exam.</div>
+          <div class="type-meta">18px / 400<br>Inter</div>
+        </div>
+        <div class="type-row">
+          <div class="type-label">Body</div>
+          <div class="type-sample" style="font-size:var(--fs-base);color:var(--text-secondary);">Regular body text used for paragraphs and descriptions across the website.</div>
+          <div class="type-meta">16px / 400<br>Inter</div>
+        </div>
+        <div class="type-row">
+          <div class="type-label">Body Small</div>
+          <div class="type-sample" style="font-size:var(--fs-sm);color:var(--text-secondary);">Small body text for secondary information, card descriptions, and captions.</div>
+          <div class="type-meta">14px / 400<br>Inter</div>
+        </div>
+        <div class="type-row">
+          <div class="type-label">Button</div>
+          <div class="type-sample" style="font-size:var(--fs-sm);font-weight:var(--fw-bold);">Join Waitlist</div>
+          <div class="type-meta">14px / 700<br>Inter</div>
+        </div>
+        <div class="type-row">
+          <div class="type-label">Caption</div>
+          <div class="type-sample" style="font-size:var(--fs-xs);color:var(--text-muted);">By clicking the button, you agree to our privacy policy.</div>
+          <div class="type-meta">12px / 400<br>Inter</div>
+        </div>
+        <div class="type-row">
+          <div class="type-label">Eyebrow</div>
+          <div class="type-sample"><span class="eyebrow-tag">⭐ Features</span></div>
+          <div class="type-meta">14px / 600<br>Inter</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         5. SPACING SYSTEM
+         =================================================== -->
+    <section id="spacing" class="theme-section">
+      <h2 class="section-label">Spacing System</h2>
+      <p class="section-desc">Consistent spacing scale used for margins, paddings, and gaps.</p>
+
+      <div class="spacing-grid">
+        <div class="spacing-item"><div class="spacing-name">space-1</div><div class="spacing-bar" style="width:4px;"></div><div class="spacing-val">4px / 0.25rem</div></div>
+        <div class="spacing-item"><div class="spacing-name">space-2</div><div class="spacing-bar" style="width:8px;"></div><div class="spacing-val">8px / 0.5rem</div></div>
+        <div class="spacing-item"><div class="spacing-name">space-3</div><div class="spacing-bar" style="width:12px;"></div><div class="spacing-val">12px / 0.75rem</div></div>
+        <div class="spacing-item"><div class="spacing-name">space-4</div><div class="spacing-bar" style="width:16px;"></div><div class="spacing-val">16px / 1rem</div></div>
+        <div class="spacing-item"><div class="spacing-name">space-5</div><div class="spacing-bar" style="width:20px;"></div><div class="spacing-val">20px / 1.25rem</div></div>
+        <div class="spacing-item"><div class="spacing-name">space-6</div><div class="spacing-bar" style="width:24px;"></div><div class="spacing-val">24px / 1.5rem</div></div>
+        <div class="spacing-item"><div class="spacing-name">space-8</div><div class="spacing-bar" style="width:32px;"></div><div class="spacing-val">32px / 2rem</div></div>
+        <div class="spacing-item"><div class="spacing-name">space-10</div><div class="spacing-bar" style="width:40px;"></div><div class="spacing-val">40px / 2.5rem</div></div>
+        <div class="spacing-item"><div class="spacing-name">space-12</div><div class="spacing-bar" style="width:48px;"></div><div class="spacing-val">48px / 3rem</div></div>
+        <div class="spacing-item"><div class="spacing-name">space-16</div><div class="spacing-bar" style="width:64px;"></div><div class="spacing-val">64px / 4rem</div></div>
+        <div class="spacing-item"><div class="spacing-name">space-20</div><div class="spacing-bar" style="width:80px;"></div><div class="spacing-val">80px / 5rem</div></div>
+        <div class="spacing-item"><div class="spacing-name">space-24</div><div class="spacing-bar" style="width:96px;"></div><div class="spacing-val">96px / 6rem</div></div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         6. BORDER RADIUS
+         =================================================== -->
+    <section id="radius" class="theme-section">
+      <h2 class="section-label">Border Radius</h2>
+      <p class="section-desc">Rounded corner values used across components.</p>
+
+      <div class="radius-grid">
+        <div class="radius-item" style="border-radius:6px;">6px<br>sm</div>
+        <div class="radius-item" style="border-radius:8px;">8px<br>md</div>
+        <div class="radius-item" style="border-radius:12px;">12px<br>lg</div>
+        <div class="radius-item" style="border-radius:16px;">16px<br>xl</div>
+        <div class="radius-item" style="border-radius:24px;">24px<br>2xl</div>
+        <div class="radius-item" style="border-radius:32px;">32px<br>3xl</div>
+        <div class="radius-item" style="border-radius:9999px;">full</div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         7. SHADOWS & EFFECTS
+         =================================================== -->
+    <section id="shadows" class="theme-section">
+      <h2 class="section-label">Shadows & Effects</h2>
+      <p class="section-desc">Box shadows, glassmorphism, and transition values.</p>
+
+      <h4 class="subsection-label">Box Shadows</h4>
+      <div class="shadow-grid">
+        <div class="shadow-item" style="box-shadow:var(--shadow-sm);">shadow-sm</div>
+        <div class="shadow-item" style="box-shadow:var(--shadow-md);">shadow-md</div>
+        <div class="shadow-item" style="box-shadow:var(--shadow-lg);">shadow-lg</div>
+        <div class="shadow-item" style="box-shadow:var(--shadow-xl);">shadow-xl</div>
+        <div class="shadow-item" style="box-shadow:var(--shadow-2xl);">shadow-2xl</div>
+        <div class="shadow-item" style="box-shadow:var(--shadow-premium);">shadow-premium</div>
+        <div class="shadow-item" style="box-shadow:var(--shadow-button);">shadow-button</div>
+      </div>
+
+      <h4 class="subsection-label">Glassmorphism</h4>
+      <div style="background:var(--gradient-hero);padding:40px;border-radius:var(--radius-2xl);">
+        <div class="glass-panel-example">
+          <p style="color:var(--text-primary);font-weight:var(--fw-bold);">Glass Panel</p>
+          <p style="color:var(--text-secondary);font-size:var(--fs-sm);margin-top:4px;">background: rgba(255,255,255,0.85); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.70);</p>
+        </div>
+      </div>
+
+      <h4 class="subsection-label">Transitions & Animations</h4>
+      <div class="card" style="max-width:500px;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:var(--fs-sm);color:var(--text-secondary);">
+          <li><strong>Fast:</strong> 150ms ease</li>
+          <li><strong>Base:</strong> 200ms ease (default for hovers)</li>
+          <li><strong>Slow:</strong> 300ms ease</li>
+          <li><strong>Spring:</strong> cubic-bezier(0.175, 0.885, 0.32, 1.275)</li>
+          <li><strong>Framer Motion spring:</strong> type: "spring", bounce: 0.3</li>
+          <li><strong>Float keyframe:</strong> translateY(0) → translateY(-15px) → translateY(0)</li>
+          <li><strong>Hover lift:</strong> translateY(-2px) or translateY(-4px)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         8. UI COMPONENTS
+         =================================================== -->
+    <section id="components" class="theme-section">
+      <h2 class="section-label">UI Components</h2>
+      <p class="section-desc">Reusable UI components with live examples.</p>
+
+      <h4 class="subsection-label">Buttons</h4>
+      <div class="component-grid">
+        <button class="btn btn-primary">Primary Button</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-outline">Outline</button>
+      </div>
+
+      <h4 class="subsection-label">Input Fields</h4>
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:400px;">
+        <input class="input" placeholder="Student name" />
+        <input class="input" type="tel" placeholder="Phone number" />
+      </div>
+
+      <h4 class="subsection-label">Cards</h4>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
+        <div class="card">
+          <div class="card-title">Feature Card</div>
+          <div class="card-text">Interactive classes led by expert teachers with exam-focused guidance.</div>
+        </div>
+        <div class="card" style="background:var(--surface-card);">
+          <div class="card-title">Surface Card</div>
+          <div class="card-text">A card on a slightly tinted background surface.</div>
+        </div>
+      </div>
+
+      <h4 class="subsection-label">Badges, Chips & Tags</h4>
+      <div class="component-grid">
+        <span class="badge badge-orange">Features</span>
+        <span class="badge badge-blue">Preview</span>
+        <span class="badge badge-dark">50 Marks</span>
+        <span class="badge badge-success">Active</span>
+        <span class="eyebrow-tag">⭐ Eyebrow Tag</span>
+      </div>
+
+      <h4 class="subsection-label">Alerts / Toasts</h4>
+      <div style="display:flex;flex-direction:column;gap:8px;max-width:400px;">
+        <div class="alert alert-success">✅ Successfully joined waitlist!</div>
+        <div class="alert alert-error">❌ Enter a valid 10-digit phone.</div>
+        <div class="alert alert-warning">⚠️ Launch date may change.</div>
+        <div class="alert alert-info">ℹ️ Registration is free.</div>
+      </div>
+
+      <h4 class="subsection-label">Progress Bar</h4>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="progress-track"><div class="progress-fill" style="width:75%;"></div></div>
+        <div class="progress-track"><div class="progress-fill" style="width:40%;"></div></div>
+      </div>
+
+      <h4 class="subsection-label">Tabs</h4>
+      <div class="tabs">
+        <button class="tab active">Overview</button>
+        <button class="tab">Courses</button>
+        <button class="tab">Tests</button>
+        <button class="tab">Notes</button>
+      </div>
+
+      <h4 class="subsection-label">Floating Action Button (FAB)</h4>
+      <div class="component-grid">
+        <button class="fab">+</button>
+        <button class="fab" style="width:48px;height:48px;font-size:16px;">✎</button>
+      </div>
+
+      <h4 class="subsection-label">Navigation Bar (Header)</h4>
+      <div style="background:var(--surface-glass-bg);backdrop-filter:blur(16px);border:1px solid var(--surface-glass-border);border-radius:var(--radius-2xl);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <img src="/laksh_jnvs_logo.png" alt="" style="height:40px;width:40px;object-fit:contain;" />
+          <span style="font-family:var(--font-display);font-weight:var(--fw-extrabold);color:var(--brand-blue);font-size:var(--fs-base);">Laksh JNV Academy</span>
+        </div>
+        <button class="btn btn-primary" style="min-height:40px;padding:8px 20px;font-size:13px;">Join Waitlist</button>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         9. ICONS
+         =================================================== -->
+    <section id="icons" class="theme-section">
+      <h2 class="section-label">Icons</h2>
+      <p class="section-desc">Icon library, styles, and sizing conventions.</p>
+
+      <div class="card" style="max-width:600px;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:var(--fs-sm);color:var(--text-secondary);">
+          <li><strong>Library:</strong> React Icons — Font Awesome 5 (fa)</li>
+          <li><strong>Package:</strong> react-icons/fa</li>
+          <li><strong>Icon Style:</strong> Solid (filled)</li>
+          <li><strong>Default Size:</strong> 16px (inherits font-size)</li>
+          <li><strong>Small:</strong> 14px (text-sm)</li>
+          <li><strong>Medium:</strong> 20px (h-5 w-5)</li>
+          <li><strong>Large:</strong> 32px (h-8 w-8)</li>
+          <li><strong>XL:</strong> 96px (h-24 w-24)</li>
+          <li><strong>Primary Color:</strong> var(--brand-orange) #FF6B00</li>
+          <li><strong>Secondary Color:</strong> var(--brand-blue) #1E3A8A</li>
+          <li><strong>Muted Color:</strong> #94A3B8 (slate-400)</li>
+          <li><strong>3D Icons:</strong> Custom AI-generated PNG images in /icons/ directory</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         10. LAYOUT SYSTEM
+         =================================================== -->
+    <section id="layout" class="theme-section">
+      <h2 class="section-label">Layout System</h2>
+      <p class="section-desc">Container widths, breakpoints, and section spacing.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
+        <div class="card">
+          <div class="card-title">Container</div>
+          <div class="card-text">max-width: 80rem (1280px)<br>px: 16px → 24px → 32px</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Breakpoints</div>
+          <div class="card-text">sm: 640px<br>md: 768px<br>lg: 1024px<br>xl: 1280px<br>2xl: 1536px</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Section Spacing</div>
+          <div class="card-text">Section padding: py-20 (80px)<br>Header height: 80px (h-20)<br>Min-width: 320px</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Grid</div>
+          <div class="card-text">Cards: grid-cols-2 → grid-cols-4<br>Hero: grid-cols-[1fr_1fr]<br>Contact: grid-cols-[0.9fr_1.1fr]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         11. CSS VARIABLES (Copy-Ready)
+         =================================================== -->
+    <section id="css-vars" class="theme-section">
+      <h2 class="section-label">CSS Variables</h2>
+      <p class="section-desc">All design tokens as CSS custom properties — ready to copy into any project.</p>
+
+      <div class="code-block"><span class="c">/* ============================
+   Laksh JNV Academy — Design Tokens
+   ============================ */</span>
+<span class="k">:root</span> {
+  <span class="c">/* Brand Colors */</span>
+  <span class="p">--brand-orange:</span> <span class="v">#FF6B00</span>;
+  <span class="p">--brand-blue:</span> <span class="v">#1E3A8A</span>;
+  <span class="p">--brand-yellow:</span> <span class="v">#FACC15</span>;
+  <span class="p">--brand-bg:</span> <span class="v">#F8FAFC</span>;
+  <span class="p">--brand-ink:</span> <span class="v">#0F172A</span>;
+
+  <span class="c">/* Status Colors */</span>
+  <span class="p">--color-success:</span> <span class="v">#16A34A</span>;
+  <span class="p">--color-warning:</span> <span class="v">#EAB308</span>;
+  <span class="p">--color-error:</span> <span class="v">#DC2626</span>;
+  <span class="p">--color-info:</span> <span class="v">#1F8FFF</span>;
+
+  <span class="c">/* Text Colors */</span>
+  <span class="p">--text-primary:</span> <span class="v">#0F172A</span>;
+  <span class="p">--text-secondary:</span> <span class="v">#475569</span>;
+  <span class="p">--text-muted:</span> <span class="v">#94A3B8</span>;
+
+  <span class="c">/* Typography */</span>
+  <span class="p">--font-display:</span> <span class="v">'Poppins', sans-serif</span>;
+  <span class="p">--font-body:</span> <span class="v">'Inter', sans-serif</span>;
+
+  <span class="c">/* Gradients */</span>
+  <span class="p">--gradient-hero:</span> <span class="v">linear-gradient(126deg, #092b66, #123a78, #8a5144, #ff6b00)</span>;
+  <span class="p">--gradient-button:</span> <span class="v">linear-gradient(to right, #ff6b00, #ff9900)</span>;
+  <span class="p">--gradient-text:</span> <span class="v">linear-gradient(to right, #ff6b00, #ffb152)</span>;
+
+  <span class="c">/* Shadows */</span>
+  <span class="p">--shadow-premium:</span> <span class="v">0 24px 70px -30px rgba(15,23,42,0.35)</span>;
+  <span class="p">--shadow-button:</span> <span class="v">0 20px 25px -5px rgba(255,107,0,0.40)</span>;
+
+  <span class="c">/* Radius */</span>
+  <span class="p">--radius-lg:</span> <span class="v">12px</span>;
+  <span class="p">--radius-xl:</span> <span class="v">16px</span>;
+  <span class="p">--radius-2xl:</span> <span class="v">24px</span>;
+  <span class="p">--radius-full:</span> <span class="v">9999px</span>;
+}</div>
+    </section>
+
+    <!-- ===================================================
+         12. TAILWIND CONFIG
+         =================================================== -->
+    <section id="tailwind" class="theme-section">
+      <h2 class="section-label">Tailwind Configuration</h2>
+      <p class="section-desc">Complete Tailwind theme extensions and custom component classes.</p>
+
+      <h4 class="subsection-label">tailwind.config.js</h4>
+      <div class="code-block"><span class="k">export default</span> {
+  content: [<span class="v">"./index.html"</span>, <span class="v">"./src/**/*.{js,jsx}"</span>],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          orange: <span class="v">"#FF6B00"</span>,
+          blue:   <span class="v">"#1E3A8A"</span>,
+          yellow: <span class="v">"#FACC15"</span>,
+          bg:     <span class="v">"#F8FAFC"</span>,
+          ink:    <span class="v">"#0F172A"</span>,
+        },
+      },
+      fontFamily: {
+        display: [<span class="v">"Poppins"</span>, <span class="v">"sans-serif"</span>],
+        body:    [<span class="v">"Inter"</span>, <span class="v">"sans-serif"</span>],
+      },
+      boxShadow: {
+        premium: <span class="v">"0 24px 70px -30px rgba(15,23,42,0.35)"</span>,
+      },
+    },
+  },
+  plugins: [],
+};</div>
+
+      <h4 class="subsection-label">Custom Component Classes (styles.css)</h4>
+      <div class="code-block"><span class="k">@layer components</span> {
+  <span class="p">.section-shell</span> {
+    <span class="k">@apply</span> mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  <span class="p">.eyebrow</span> {
+    <span class="k">@apply</span> inline-flex items-center gap-2 rounded-full
+           border border-orange-200 bg-orange-50
+           px-3 py-1 text-sm font-semibold text-brand-orange;
+  }
+  <span class="p">.section-title</span> {
+    <span class="k">@apply</span> font-display text-3xl font-extrabold tracking-normal
+           text-brand-ink sm:text-4xl lg:text-5xl;
+  }
+  <span class="p">.section-copy</span> {
+    <span class="k">@apply</span> mt-4 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg;
+  }
+  <span class="p">.glass-panel</span> {
+    <span class="k">@apply</span> border border-white/70 bg-white/85 shadow-premium backdrop-blur;
+  }
+  <span class="p">.hide-scrollbar</span> {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  <span class="p">.hide-scrollbar::-webkit-scrollbar</span> {
+    display: none;
+  }
+}</div>
+    </section>
+
+    <!-- ===================================================
+         13. EXPORT SECTION
+         =================================================== -->
+    <section id="export" class="theme-section">
+      <h2 class="section-label">Export — Ready-to-Copy Tokens</h2>
+      <p class="section-desc">Complete design token sets formatted for mobile app development.</p>
+
+      <h4 class="subsection-label">Color Palette (JSON)</h4>
+      <div class="code-block">{
+  <span class="p">"brand"</span>: {
+    <span class="p">"orange"</span>: <span class="v">"#FF6B00"</span>,
+    <span class="p">"blue"</span>: <span class="v">"#1E3A8A"</span>,
+    <span class="p">"yellow"</span>: <span class="v">"#FACC15"</span>,
+    <span class="p">"background"</span>: <span class="v">"#F8FAFC"</span>,
+    <span class="p">"ink"</span>: <span class="v">"#0F172A"</span>
+  },
+  <span class="p">"text"</span>: {
+    <span class="p">"primary"</span>: <span class="v">"#0F172A"</span>,
+    <span class="p">"secondary"</span>: <span class="v">"#475569"</span>,
+    <span class="p">"muted"</span>: <span class="v">"#94A3B8"</span>,
+    <span class="p">"white"</span>: <span class="v">"#FFFFFF"</span>,
+    <span class="p">"blueLight"</span>: <span class="v">"#DBEAFE"</span>
+  },
+  <span class="p">"status"</span>: {
+    <span class="p">"success"</span>: <span class="v">"#16A34A"</span>,
+    <span class="p">"warning"</span>: <span class="v">"#EAB308"</span>,
+    <span class="p">"error"</span>: <span class="v">"#DC2626"</span>,
+    <span class="p">"info"</span>: <span class="v">"#1F8FFF"</span>
+  },
+  <span class="p">"surface"</span>: {
+    <span class="p">"white"</span>: <span class="v">"#FFFFFF"</span>,
+    <span class="p">"card"</span>: <span class="v">"#F1F5F9"</span>,
+    <span class="p">"background"</span>: <span class="v">"#F8FAFC"</span>
+  },
+  <span class="p">"border"</span>: {
+    <span class="p">"default"</span>: <span class="v">"#E2E8F0"</span>,
+    <span class="p">"light"</span>: <span class="v">"#F1F5F9"</span>,
+    <span class="p">"orange"</span>: <span class="v">"#FED7AA"</span>
+  }
+}</div>
+
+      <h4 class="subsection-label">Typography Tokens (JSON)</h4>
+      <div class="code-block">{
+  <span class="p">"fontFamily"</span>: {
+    <span class="p">"display"</span>: <span class="v">"Poppins"</span>,
+    <span class="p">"body"</span>: <span class="v">"Inter"</span>
+  },
+  <span class="p">"fontSize"</span>: {
+    <span class="p">"xs"</span>: <span class="v">12</span>,
+    <span class="p">"sm"</span>: <span class="v">14</span>,
+    <span class="p">"base"</span>: <span class="v">16</span>,
+    <span class="p">"lg"</span>: <span class="v">18</span>,
+    <span class="p">"xl"</span>: <span class="v">20</span>,
+    <span class="p">"2xl"</span>: <span class="v">24</span>,
+    <span class="p">"3xl"</span>: <span class="v">30</span>,
+    <span class="p">"4xl"</span>: <span class="v">36</span>,
+    <span class="p">"5xl"</span>: <span class="v">48</span>,
+    <span class="p">"6xl"</span>: <span class="v">60</span>,
+    <span class="p">"7xl"</span>: <span class="v">72</span>
+  },
+  <span class="p">"fontWeight"</span>: {
+    <span class="p">"regular"</span>: <span class="v">400</span>,
+    <span class="p">"medium"</span>: <span class="v">500</span>,
+    <span class="p">"semibold"</span>: <span class="v">600</span>,
+    <span class="p">"bold"</span>: <span class="v">700</span>,
+    <span class="p">"extrabold"</span>: <span class="v">800</span>
+  },
+  <span class="p">"lineHeight"</span>: {
+    <span class="p">"tight"</span>: <span class="v">1.08</span>,
+    <span class="p">"snug"</span>: <span class="v">1.25</span>,
+    <span class="p">"normal"</span>: <span class="v">1.5</span>,
+    <span class="p">"relaxed"</span>: <span class="v">1.75</span>
+  }
+}</div>
+
+      <h4 class="subsection-label">Spacing & Radius Tokens (JSON)</h4>
+      <div class="code-block">{
+  <span class="p">"spacing"</span>: {
+    <span class="p">"1"</span>: <span class="v">4</span>, <span class="p">"2"</span>: <span class="v">8</span>, <span class="p">"3"</span>: <span class="v">12</span>, <span class="p">"4"</span>: <span class="v">16</span>,
+    <span class="p">"5"</span>: <span class="v">20</span>, <span class="p">"6"</span>: <span class="v">24</span>, <span class="p">"8"</span>: <span class="v">32</span>, <span class="p">"10"</span>: <span class="v">40</span>,
+    <span class="p">"12"</span>: <span class="v">48</span>, <span class="p">"16"</span>: <span class="v">64</span>, <span class="p">"20"</span>: <span class="v">80</span>, <span class="p">"24"</span>: <span class="v">96</span>
+  },
+  <span class="p">"borderRadius"</span>: {
+    <span class="p">"sm"</span>: <span class="v">6</span>, <span class="p">"md"</span>: <span class="v">8</span>, <span class="p">"lg"</span>: <span class="v">12</span>,
+    <span class="p">"xl"</span>: <span class="v">16</span>, <span class="p">"2xl"</span>: <span class="v">24</span>, <span class="p">"3xl"</span>: <span class="v">32</span>,
+    <span class="p">"full"</span>: <span class="v">9999</span>
+  }
+}</div>
+
+      <h4 class="subsection-label">Flutter / React Native Colors</h4>
+      <div class="code-block"><span class="c">// Dart / Flutter</span>
+<span class="k">class</span> AppColors {
+  <span class="k">static const</span> brandOrange = <span class="v">Color(0xFFFF6B00)</span>;
+  <span class="k">static const</span> brandBlue   = <span class="v">Color(0xFF1E3A8A)</span>;
+  <span class="k">static const</span> brandYellow = <span class="v">Color(0xFFFACC15)</span>;
+  <span class="k">static const</span> brandBg     = <span class="v">Color(0xFFF8FAFC)</span>;
+  <span class="k">static const</span> brandInk    = <span class="v">Color(0xFF0F172A)</span>;
+  <span class="k">static const</span> success     = <span class="v">Color(0xFF16A34A)</span>;
+  <span class="k">static const</span> warning     = <span class="v">Color(0xFFEAB308)</span>;
+  <span class="k">static const</span> error       = <span class="v">Color(0xFFDC2626)</span>;
+  <span class="k">static const</span> info        = <span class="v">Color(0xFF1F8FFF)</span>;
+}</div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <div style="background:var(--brand-ink);padding:40px 0;margin-top:0;">
+    <div class="theme-shell" style="text-align:center;color:var(--text-muted);font-size:var(--fs-sm);">
+      <p><strong style="color:white;">Laksh JNV Academy</strong> — Design System v1.0</p>
+      <p style="margin-top:4px;">Auto-generated from the website codebase • July 2026</p>
+    </div>
+  </div>
+
+</body>
+</html>
