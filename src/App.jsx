@@ -5,8 +5,8 @@ import Hero from "./components/sections/Hero.jsx";
 import CountdownSection from "./components/sections/CountdownSection.jsx";
 import About from "./components/sections/About.jsx";
 import WhyChoose from "./components/sections/WhyChoose.jsx";
-import PlatformPreview from "./components/sections/PlatformPreview.jsx";
 import Benefits from "./components/sections/Benefits.jsx";
+import AppDownload from "./components/sections/AppDownload.jsx";
 import Waitlist from "./components/sections/Waitlist.jsx";
 import FAQ from "./components/sections/FAQ.jsx";
 import Contact from "./components/sections/Contact.jsx";
@@ -24,8 +24,8 @@ export default function App() {
             <CountdownSection />
             <About />
             <WhyChoose />
-            <PlatformPreview />
             <Benefits />
+            <AppDownload />
             <Waitlist />
             <FAQ />
             <Contact />

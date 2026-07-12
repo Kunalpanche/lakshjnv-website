@@ -54,7 +54,7 @@ export default function Waitlist() {
   };
 
   return (
-    <section id="waitlist" className="bg-brand-blue py-20 text-white">
+    <section id="waitlist" className="bg-[linear-gradient(306deg,#092b66_0%,#123a78_36%,#8a5144_64%,#ff6b00_100%)] py-20 text-white">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div>
           <SectionHeading

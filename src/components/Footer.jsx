@@ -4,7 +4,7 @@ const policyLinks = ["Privacy Policy", "Terms & Conditions", "Refund Policy", "C
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-blue text-white">
+    <footer className="bg-[linear-gradient(126deg,#092b66_0%,#123a78_36%,#8a5144_64%,#ff6b00_100%)] rounded-t-[2.5rem] md:rounded-t-[2.5rem] text-white overflow-hidden">
       <div className="section-shell grid gap-10 py-12 lg:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <a href="#home" className="inline-flex items-center gap-3 font-display text-xl font-extrabold">

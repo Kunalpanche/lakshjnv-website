@@ -29,13 +29,17 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2">
           {contact.map(({ icon: Icon, label, value, href }) => (
-            <a key={label} href={href} className="rounded-lg border border-slate-200 bg-brand-bg p-6 transition hover:border-brand-orange hover:bg-orange-50">
-              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-white text-brand-orange shadow-sm">
-                <Icon aria-hidden="true" />
-              </span>
-              <p className="mt-4 text-sm font-bold uppercase tracking-wide text-slate-500">{label}</p>
+            <a key={label} href={href} className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-orange-200 hover:shadow-xl">
+              <div className="mb-4">
+                {typeof Icon === "string" ? (
+                  <img src={Icon} alt={label} className="h-16 w-16 object-contain transition-transform group-hover:scale-110" />
+                ) : (
+                  <Icon aria-hidden="true" className="h-8 w-8 text-brand-orange" />
+                )}
+              </div>
+              <p className="text-sm font-bold uppercase tracking-wide text-slate-500">{label}</p>
               <p className="mt-1 font-display text-lg font-bold text-brand-ink">{value}</p>
             </a>
           ))}

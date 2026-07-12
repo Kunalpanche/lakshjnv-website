@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  FaPhoneAlt,
-  FaRocket,
-  FaSpinner,
-  FaUser,
-} from "react-icons/fa";
+import { FaPhoneAlt, FaRocket, FaSpinner, FaUser } from "react-icons/fa";
 import Button from "../Button.jsx";
 import { useLocalRegistrations } from "../../hooks/useLocalRegistrations.js";
 import { isValidPhone } from "../../utils/validation.js";
@@ -41,7 +36,10 @@ export default function Hero() {
       });
       setFullName("");
       setPhone("");
-      setFormStatus({ type: "success", message: "Successfully joined waitlist!" });
+      setFormStatus({
+        type: "success",
+        message: "Successfully joined waitlist!",
+      });
     } catch (error) {
       setFormStatus({ type: "error", message: error.message });
     } finally {
@@ -50,7 +48,10 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-[92vh] w-full overflow-hidden bg-[#092b66] pt-20">
+    <section
+      id="home"
+      className="relative min-h-[92vh] w-full overflow-hidden bg-[#092b66] pt-20"
+    >
       <div className="relative z-10 min-h-[calc(92vh-5rem)] w-full">
         <motion.div
           className="relative min-h-[calc(92vh-5rem)] w-full overflow-hidden bg-[#082a68]"
@@ -60,11 +61,14 @@ export default function Hero() {
         >
           <div className="absolute inset-0 z-0 bg-[linear-gradient(126deg,#092b66_0%,#123a78_36%,#8a5144_64%,#ff6b00_100%)]" />
           <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_16%_18%,rgba(255,255,255,0.14),transparent_28%),radial-gradient(circle_at_80%_24%,rgba(255,216,180,0.28),transparent_34%),radial-gradient(circle_at_92%_72%,rgba(255,107,0,0.36),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0))]" />
-          <div className="absolute inset-x-0 bottom-0 z-20 flex h-[48%] items-end justify-center sm:h-[54%] md:h-[58%] lg:inset-y-0 lg:-right-20 lg:left-auto lg:h-auto lg:w-[68%] lg:justify-end [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%)] lg:[mask-image:linear-gradient(to_right,transparent_0%,black_15%)]" aria-hidden="true">
+          <div
+            className="absolute inset-x-0 bottom-0 z-20 flex h-[48%] items-end justify-center sm:h-[54%] md:h-[58%] lg:inset-y-0 lg:-right-32 lg:left-auto lg:h-auto lg:w-[68%] lg:justify-end xl:-right-40 [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%)] lg:[mask-image:linear-gradient(to_right,transparent_0%,black_15%)]"
+            aria-hidden="true"
+          >
             <img
               src="/bg.png"
               alt=""
-              className="h-auto w-[168%] max-w-none object-contain object-bottom sm:w-[148%] md:h-[104%] md:w-[104%] lg:h-[108%] lg:w-[108%] xl:h-[112%] xl:w-[112%]"
+              className="h-auto w-[168%] translate-x-[10px] lg:translate-x-0 max-w-none object-contain object-bottom sm:w-[148%] md:h-[104%] md:w-[104%] lg:h-[108%] lg:w-[108%] xl:h-[112%] xl:w-[112%] drop-shadow-[0_0_40px_rgba(255,107,0,0.45)]"
               loading="eager"
               fetchPriority="high"
             />
@@ -78,18 +82,26 @@ export default function Hero() {
                 Laksh JNV Academy
               </span>
 
-              <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] text-white sm:text-5xl lg:text-[3.2rem] xl:text-[3.7rem]">
+              <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] text-white sm:text-5xl lg:text-[3.2rem] xl:text-[3.7rem] drop-shadow-md">
                 We prepare your child for{" "}
-                <span className="text-brand-orange">JNV success</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6b00] to-[#ffb152]">JNV success</span>
               </h1>
 
               <p className="mt-5 max-w-xl text-base font-semibold leading-7 text-blue-50 sm:text-lg">
-                Laksh JNV Academy helps students prepare for Jawahar Navodaya Vidyalaya with focused online learning, smart practice, and early launch benefits.
+                Laksh JNV Academy helps students prepare for Jawahar Navodaya
+                Vidyalaya with focused online learning, smart practice, and
+                early launch benefits.
               </p>
+
+              <div className="mt-8 w-full max-w-md lg:hidden">
+                <Button className="w-full rounded-full py-3.5 shadow-orange-500/30">
+                  Enroll Now
+                </Button>
+              </div>
 
               <form
                 onSubmit={handleFormSubmit}
-                className="relative mt-8 hidden w-full max-w-[440px] rounded-[26px] bg-white p-5 shadow-2xl shadow-slate-950/25 sm:p-6 md:block"
+                className="relative mt-8 hidden w-full max-w-[440px] rounded-[26px] bg-white p-5 shadow-2xl shadow-slate-950/25 sm:p-6 lg:block"
                 noValidate
               >
                 <div className="absolute -right-3 -top-4 rotate-6 rounded-xl bg-[#1f8fff] px-4 py-2 font-display text-xs font-extrabold text-white shadow-lg">
@@ -97,31 +109,45 @@ export default function Hero() {
                 </div>
 
                 <h2 className="font-display text-xl font-extrabold leading-tight text-brand-ink sm:text-2xl">
-                  Try the first lesson <span className="text-brand-orange">for free</span>
+                  Try the first lesson{" "}
+                  <span className="text-brand-orange">for free</span>
                 </h2>
 
                 <label className="mt-5 block">
                   <span className="sr-only">Student name</span>
                   <span className="relative block">
-                    <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true" />
+                    <FaUser
+                      className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                      aria-hidden="true"
+                    />
                     <input
                       type="text"
                       value={fullName}
                       onChange={(event) => {
                         setFullName(event.target.value);
-                        setFormErrors((current) => ({ ...current, fullName: "" }));
+                        setFormErrors((current) => ({
+                          ...current,
+                          fullName: "",
+                        }));
                       }}
                       placeholder="Student name"
                       className="min-h-12 w-full rounded-xl border border-slate-100 bg-slate-100 py-3 pl-11 pr-4 text-sm text-brand-ink outline-none transition placeholder:text-slate-400 focus:border-brand-orange focus:bg-white focus:ring-4 focus:ring-orange-100"
                     />
                   </span>
-                  {formErrors.fullName && <span className="mt-1 block text-xs font-semibold text-red-600">{formErrors.fullName}</span>}
+                  {formErrors.fullName && (
+                    <span className="mt-1 block text-xs font-semibold text-red-600">
+                      {formErrors.fullName}
+                    </span>
+                  )}
                 </label>
 
                 <label className="mt-3 block">
                   <span className="sr-only">Phone number</span>
                   <span className="relative block">
-                    <FaPhoneAlt className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true" />
+                    <FaPhoneAlt
+                      className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                      aria-hidden="true"
+                    />
                     <input
                       type="tel"
                       inputMode="numeric"
@@ -134,26 +160,39 @@ export default function Hero() {
                       className="min-h-12 w-full rounded-xl border border-slate-100 bg-slate-100 py-3 pl-11 pr-4 text-sm text-brand-ink outline-none transition placeholder:text-slate-400 focus:border-brand-orange focus:bg-white focus:ring-4 focus:ring-orange-100"
                     />
                   </span>
-                  {formErrors.phone && <span className="mt-1 block text-xs font-semibold text-red-600">{formErrors.phone}</span>}
+                  {formErrors.phone && (
+                    <span className="mt-1 block text-xs font-semibold text-red-600">
+                      {formErrors.phone}
+                    </span>
+                  )}
                 </label>
 
                 {formStatus.message && (
                   <p
                     className={`mt-4 rounded-lg p-3 text-xs font-bold ${
-                      formStatus.type === "success" ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"
+                      formStatus.type === "success"
+                        ? "bg-green-50 text-green-700"
+                        : "bg-red-50 text-red-700"
                     }`}
                   >
                     {formStatus.message}
                   </p>
                 )}
 
-                <Button type="submit" disabled={formLoading} className="mt-5 w-full rounded-full py-3.5 shadow-orange-500/30">
-                  {formLoading && <FaSpinner className="animate-spin" aria-hidden="true" />}
+                <Button
+                  type="submit"
+                  disabled={formLoading}
+                  className="mt-5 w-full rounded-full py-3.5 shadow-orange-500/30"
+                >
+                  {formLoading && (
+                    <FaSpinner className="animate-spin" aria-hidden="true" />
+                  )}
                   {formLoading ? "Submitting..." : "Register for a free lesson"}
                 </Button>
 
                 <p className="mt-3 text-center text-[10px] font-medium leading-4 text-slate-400">
-                  By clicking the button, you agree to our privacy policy and personal data processing.
+                  By clicking the button, you agree to our privacy policy and
+                  personal data processing.
                 </p>
               </form>
             </div>
