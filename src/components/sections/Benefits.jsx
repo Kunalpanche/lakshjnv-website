@@ -30,7 +30,7 @@ export default function Benefits() {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden bg-[#082a68]">
+    <section className="py-20 relative overflow-hidden bg-[#082a68] select-none">
       <div className="absolute inset-0 z-0 bg-[linear-gradient(126deg,#092b66_0%,#123a78_36%,#8a5144_64%,#ff6b00_100%)]" />
       <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_16%_18%,rgba(255,255,255,0.14),transparent_28%),radial-gradient(circle_at_80%_24%,rgba(255,216,180,0.28),transparent_34%),radial-gradient(circle_at_92%_72%,rgba(255,107,0,0.36),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0))]" />
       <div className="section-shell relative z-10">
